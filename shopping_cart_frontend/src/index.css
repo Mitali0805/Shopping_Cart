@@ -1,0 +1,11 @@
+.f1{
+    background-color:rgb(189, 187, 187);
+    height: 100px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+@media only screen and (max-width: 800px) {
+    
+}
