@@ -1,6 +1,7 @@
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');    // to generate signed token
 const expressJwt = require('express-jwt'); //for authorization
+const { errorHandler } = require('../helpers/dbErrorHandler')
 
 //signup
 exports.signup = (req,res) =>{
@@ -11,7 +12,7 @@ exports.signup = (req,res) =>{
     user.save((err,user)=>{
         if(err){
             return res.status(400).json({
-                err
+                err:errorHandler(err)
             });
         }
 

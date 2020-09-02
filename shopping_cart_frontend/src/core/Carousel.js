@@ -19,7 +19,7 @@ function ControlledCarousel() {
       <img
           className="d-block w-100"
           src={oneplus}
-          height="430px"
+          height="400px"
           alt="Second slide"
         />
 
@@ -28,7 +28,7 @@ function ControlledCarousel() {
         <img
           className="d-block w-100"
           src={shop}
-          height="430px"
+          height="400px"
           alt="Second slide"
         />
       </Carousel.Item>
@@ -36,7 +36,7 @@ function ControlledCarousel() {
         <img
           className="d-block w-100"
           src={headphone}
-          height="430px"
+          height="400px"
           alt="Third slide"
         />
       </Carousel.Item>

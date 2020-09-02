@@ -22,6 +22,9 @@ function AdminDashboard(){
                     <li className="list-group-item">
                         <NavLink to="/admin/products">Manage Product</NavLink>
                     </li>
+                    <li className="list-group-item">
+                        <NavLink to="/admin/orders">View All Orders</NavLink>
+                    </li>
                 </ul>
             </div>
         )

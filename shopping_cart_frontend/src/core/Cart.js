@@ -49,7 +49,7 @@ const Cart = () =>{
               <div className="col-3">
                 <h3 className="mt-2">Cart Summary</h3>
                 <hr/>
-                <Checkout products={items}/>
+                <Checkout setRun={setRun} products={items}/>
               </div>
            </div>
         </Layout>

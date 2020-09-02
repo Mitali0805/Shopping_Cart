@@ -4,6 +4,12 @@ import { isAuthenticated } from '../auth/index';
 import { getProducts , deleteProduct} from './ApiAdmin';
 import { Link } from 'react-router-dom';
 
+import { Icon, InlineIcon } from '@iconify/react';
+import baselineDelete from '@iconify/icons-ic/baseline-delete';
+import updateIcon from '@iconify/icons-mdi/update';
+import editIcon from '@iconify/icons-zmdi/edit';
+
+
 
 const ManageProducts = () => {
 
@@ -43,7 +49,7 @@ const ManageProducts = () => {
              <h4 style={{color:'orange'}}>
                 Total Products :{products.length}
              </h4>
-             <table className="table">
+             <table className="table table-striped">
                   {products.map((p,i) =>(
                       <tr key={i}>
                         <td>
@@ -51,11 +57,11 @@ const ManageProducts = () => {
                         </td>
                         <td>
                         <Link to={`/admin/product/update/${p._id}`}>
-                              <span className="btn btn-info">Update</span>
+                              <span className="btn btn-info"><Icon width={20} icon={editIcon} /></span>
                            </Link>
                         </td>
                         <td>
-                           <span onClick={() => destroy(p._id)} className="btn btn-danger">Delete</span>
+                           <span onClick={() => destroy(p._id)} className="btn btn-danger"><Icon width={20} icon={baselineDelete} /></span>
                         </td>
                      </tr> 
                   ))}

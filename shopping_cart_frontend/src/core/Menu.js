@@ -76,7 +76,7 @@ function Menu ({history}){
                             <sup>{itemTotal()}</sup>  
                        </NavLink>
                      </Navbar.Brand>
-                    {/* )}  */}
+                      {/* )}    */}
                 </Navbar.Collapse>
             </Nav>
         </Navbar>         

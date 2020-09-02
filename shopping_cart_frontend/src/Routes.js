@@ -15,6 +15,7 @@ import Store from './core/store';
 import Product from './core/Product';
 import Cart from './core/Cart';
 import ManageProducts from './admin/ManageProducts';
+import Orders from './admin/Orders';
 
 
 function Routes(){
@@ -51,7 +52,10 @@ function Routes(){
                     <AdminRoute path ="/admin/product/update/:productId"
                       exact
                       component = { UpdateProduct } />     
-
+                    
+                     <AdminRoute path ="/admin/orders"
+                      exact
+                      component = { Orders } /> 
 
                 </Switch>
            </Router>          

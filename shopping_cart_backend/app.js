@@ -14,6 +14,7 @@ const userRoutes = require('./routes/user');
 const categoryRoutes = require('./routes/category');
 const productRoutes = require('./routes/products');
 const braintreeRoutes = require('./routes/braintree');
+const orderRoutes = require('./routes/order');
 
 //db
 mongoose.connect(process.env.MONGO_URI,{ useNewUrlParser: true ,useUnifiedTopology: true  })
@@ -43,5 +44,6 @@ app.use('/api',userRoutes);
 app.use('/api',categoryRoutes);
 app.use('/api',productRoutes);
 app.use('/api',braintreeRoutes);
+app.use('/api',orderRoutes);
 
 module.exports = app;
