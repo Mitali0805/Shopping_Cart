@@ -33,7 +33,7 @@ function Dashboard(){
                 <ul className="list-group">
                     <li className="list-group-item">
                         {/* <NavLink to="/profile/update">My Profile</NavLink> */}
-                        <NavLink to="/user/dashboard" activeStyle={{textDecoration:'none', color:'navy'}}>My Profile</NavLink>
+                        <NavLink to="/user/dashboard" activeStyle={{textDecoration:'none', color:'navy',fontSize:'20px'}}>My Profile</NavLink>
                     </li>
                     <li className="list-group-item">
                         <NavLink to="/cart">My Cart</NavLink>
@@ -48,9 +48,9 @@ function Dashboard(){
       <div className="card mb-5 mt-5">
         <h3 className="card-header bg-secondary">User Information</h3>
         <ul className="list-group">
-            <li className="list-group-item">{name}</li>
-            <li className="list-group-item">{email}</li>
-            <li className="list-group-item">{role === 0 ? 'User' : 'Admin'}</li>
+            <li className="list-group-item"><h6>{name}</h6></li>
+            <li className="list-group-item"><h6>{email}</h6></li>
+            <li className="list-group-item"><h6>{role === 0 ? 'User' : 'Admin'}</h6></li>
         </ul>
       </div>
       )};
@@ -73,15 +73,11 @@ function Dashboard(){
                                                 <h6>
                                                     Product price: ₹{p.price}
                                                 </h6>
-                                                <h6>
-                                                    Purchased date:{" "}
-                                                    {moment(
-                                                        p.createdAt
-                                                    ).fromNow()}
-                                                </h6>
-                                            </div>
+                                           </div>
                                         );
                                     })}
+                                    <h6>Purchased date: { h.createdAt} </h6>
+                                        
                                 </div>
                             );
                         })}

@@ -6,6 +6,17 @@ const { userById , addOrderToUserHistory } = require("../controllers/user");
 const { create , listOrders } = require("../controllers/order");
 const { decreaseQuantity } = require("../controllers/products");
 
+/**
+* @swagger
+* /api/order/create/5f4044ac957b7463541efedb:
+*    post:
+*       tags:
+*       summary: Create the order.
+*       description: user can create the order
+*       responses: 
+*            200:
+*               description: Order is created.
+*/
 router.post('/order/create/:userId',
              requireSignin, isAuth,
               addOrderToUserHistory ,
@@ -13,6 +24,18 @@ router.post('/order/create/:userId',
               create
             );
 
+            
+/**
+* @swagger
+* /api/order/list/5f4044ac957b7463541efedb:
+*    get:
+*       tags:
+*       summary: List of orders
+*       description: user can see the list of orders
+*       responses: 
+*            200:
+*               description: Order List is displayed.
+*/
 router.get('/order/list/:userId',requireSignin,isAuth,isAdmin, listOrders);
   
 router.param('userId',userById)
