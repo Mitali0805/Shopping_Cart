@@ -1,12 +1,13 @@
 import React,{useState,useEffect} from 'react';
 import Layout from '../core/Layout';
 import { isAuthenticated } from '../auth/index';
-import { listOrders } from './ApiAdmin';
+import { listOrders , getStatusValues, updateOrderStatus} from './ApiAdmin';
 import { Link } from 'react-router-dom';
 import moment from 'moment'
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
+  const [statusValues, setStatusValues] = useState([]);  
 
 //destructure
   const {user, token } = isAuthenticated()
@@ -21,8 +22,19 @@ const Orders = () => {
     });
   };
 
+  const loadStatusValues = () => {
+    getStatusValues(user._id, token).then(data => {
+        if(data.error) {
+            console.log(data.error);
+        } else {
+            setStatusValues(data);
+        }
+    });
+  };
+
   useEffect(() =>{
     loadOrders();
+    loadStatusValues();
   },[])
 
   const showOrderslength = () => {
@@ -44,6 +56,33 @@ const Orders = () => {
          </div>
          <input type="text" value={value} className="form-control" readOnly />
      </div> 
+  );
+
+  const handleStatusChange = (event, orderId) => {
+      //console.log('update order status')
+      updateOrderStatus(user._id, token, orderId, event.target.value).then(data =>{
+         if(data.error) {
+             console.log('Status updated Failed')
+         } else {
+             loadOrders();
+         }
+      })
+  }
+
+  const showStatus = o => (
+      <div className="form-group">
+          <h6 className="mark mb-4">Status: {o.status}</h6>
+          <select className="form-control"
+                  onChange={(event) => handleStatusChange(event, o._id)}     
+          >
+              <option>Change Status</option>
+               {statusValues.map((status,index) => (
+                   <option key={index} value={status}>
+                       {status}
+                   </option>
+               ))}
+          </select>
+      </div>
   )
 
   return (
@@ -69,7 +108,7 @@ const Orders = () => {
                                <th>Delivery Address</th>
                             </tr>
                             <tr>
-                               <td>{o.status}</td>
+                               <td>{showStatus(o)}</td>
                                <td>{o.transaction_id}</td>
                                <td>₹{o.amount}</td>
                                {/* <td>{o.user.name}</td> */}

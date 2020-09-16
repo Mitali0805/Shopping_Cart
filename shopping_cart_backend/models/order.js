@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const { ObjectId } = mongoose.Schema;
- 
+const { User } = require('./user')
+
 const CartItemSchema = new mongoose.Schema(
   {
     product: { type: ObjectId, ref: "Product" },
@@ -26,7 +27,7 @@ const OrderSchema = new mongoose.Schema(
       enum: ["Not processed", "Processing", "Shipped", "Delivered", "Cancelled"] // enum means string objects
     },
     updated: Date,
-    user: { type: ObjectId, ref: "User" }
+    user: { type: ObjectId, ref: 'User' }
   },
   { timestamps: true }
 );

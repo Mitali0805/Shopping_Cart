@@ -53,20 +53,20 @@ const AddCategory= () =>{
     //success
     const showSuccess = () =>{
         if (success) {
-        // return <h4 className="text-success">{name} is created..</h4>
-        return (
-            <table className="table">
-                <tr>
-                    <th>Category Name</th>
-                    <th>Update</th>
-                    <th>Delete</th>
-                </tr>
-                <tr>
+        return <h4 className="text-success">{name} is created..</h4>
+        // return (
+        //     <table className="table">
+        //         <tr>
+        //             <th>Category Name</th>
+        //             <th>Update</th>
+        //             <th>Delete</th>
+        //         </tr>
+        //         <tr>
                     
-                    <td>{name}</td>
-                </tr>
-            </table>
-        )
+        //             <td>{name}</td>
+        //         </tr>
+        //     </table>
+        // )
         }
     };
 
